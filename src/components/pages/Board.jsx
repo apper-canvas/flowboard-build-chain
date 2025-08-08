@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import KanbanBoard from "@/components/organisms/KanbanBoard";
+import TimelineView from "@/components/organisms/TimelineView";
 import TaskModal from "@/components/organisms/TaskModal";
 import FilterBar from "@/components/molecules/FilterBar";
 import Loading from "@/components/ui/Loading";
@@ -9,19 +10,18 @@ import Button from "@/components/atoms/Button";
 import ApperIcon from "@/components/ApperIcon";
 import { taskService } from "@/services/api/taskService";
 import { toast } from "react-toastify";
-
 const Board = () => {
-  const [tasks, setTasks] = useState([]);
+const [tasks, setTasks] = useState([]);
   const [filteredTasks, setFilteredTasks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   
   const [selectedTask, setSelectedTask] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [viewMode, setViewMode] = useState("kanban"); // "kanban" or "timeline"
   
   const [statusFilter, setStatusFilter] = useState("");
   const [priorityFilter, setPriorityFilter] = useState("");
-
   const loadTasks = async () => {
     try {
       setError("");
@@ -114,7 +114,7 @@ const Board = () => {
   }
 
   return (
-    <div className="space-y-6">
+<div className="space-y-6">
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
@@ -122,14 +122,41 @@ const Board = () => {
             Project Board
           </h1>
           <p className="text-gray-600">
-            Manage your tasks with drag-and-drop simplicity
+            {viewMode === "kanban" 
+              ? "Manage your tasks with drag-and-drop simplicity" 
+              : "Visualize project timelines and task schedules"
+            }
           </p>
         </div>
         
-        <Button onClick={() => handleNewTask()} variant="primary">
-          <ApperIcon name="Plus" size={16} />
-          New Task
-        </Button>
+        <div className="flex items-center gap-3">
+          {/* View Toggle */}
+          <div className="flex items-center bg-gray-100 rounded-lg p-1">
+            <Button
+              variant={viewMode === "kanban" ? "primary" : "ghost"}
+              size="sm"
+              onClick={() => setViewMode("kanban")}
+              className="px-3 py-1.5 text-sm"
+            >
+              <ApperIcon name="Columns" size={14} />
+              Kanban
+            </Button>
+            <Button
+              variant={viewMode === "timeline" ? "primary" : "ghost"}
+              size="sm"
+              onClick={() => setViewMode("timeline")}
+              className="px-3 py-1.5 text-sm"
+            >
+              <ApperIcon name="Calendar" size={14} />
+              Timeline
+            </Button>
+          </div>
+          
+          <Button onClick={() => handleNewTask()} variant="primary">
+            <ApperIcon name="Plus" size={16} />
+            New Task
+          </Button>
+        </div>
       </div>
 
       {/* Filters */}
@@ -140,18 +167,25 @@ const Board = () => {
         onPriorityChange={setPriorityFilter}
         onClearFilters={handleClearFilters}
       />
-
-      {/* Board Content */}
+{/* Board Content */}
       {filteredTasks.length === 0 ? (
         <Empty
           title="No tasks found"
           description="Start organizing your work by creating your first task."
-          icon="Kanban"
+          icon={viewMode === "kanban" ? "Kanban" : "Calendar"}
           actionLabel="Create First Task"
           onAction={() => handleNewTask()}
         />
-      ) : (
+      ) : viewMode === "kanban" ? (
         <KanbanBoard
+          tasks={filteredTasks}
+          onTaskUpdate={handleTaskUpdate}
+          onTaskEdit={handleEditTask}
+          onTaskDelete={handleDeleteTask}
+          onNewTask={handleNewTask}
+        />
+      ) : (
+        <TimelineView
           tasks={filteredTasks}
           onTaskUpdate={handleTaskUpdate}
           onTaskEdit={handleEditTask}

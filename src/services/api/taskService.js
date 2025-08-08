@@ -24,6 +24,16 @@ export const taskService = {
     return tasks.filter(t => t.projectId === projectId).map(t => ({ ...t }));
   },
 
+  async getByDateRange(startDate, endDate) {
+    await delay(250);
+    return tasks.filter(task => {
+      const taskStart = task.startDate ? new Date(task.startDate) : new Date(task.createdAt);
+      const taskEnd = task.dueDate ? new Date(task.dueDate) : taskStart;
+      
+      return (taskStart <= endDate && taskEnd >= startDate) && !task.archived;
+    }).map(t => ({ ...t }));
+  },
+
   async getActive() {
     await delay(300);
     return tasks.filter(t => !t.archived).map(t => ({ ...t }));
@@ -39,6 +49,7 @@ export const taskService = {
     const newTask = {
       Id: Math.max(...tasks.map(t => t.Id), 0) + 1,
       ...taskData,
+      startDate: taskData.startDate || new Date().toISOString(),
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       archived: false

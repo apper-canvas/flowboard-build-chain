@@ -25,7 +25,7 @@ const TaskModal = ({
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
+useEffect(() => {
     if (task) {
       setFormData({
         title: task.title || "",

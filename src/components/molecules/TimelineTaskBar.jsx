@@ -55,7 +55,7 @@ function TimelineTaskBar({
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex items-center h-full px-2 relative">
-        {/* Priority Indicator */}
+{/* Priority Indicator */}
         <div className="flex-shrink-0 mr-2">
           <PriorityIndicator priority={task.priority} size="sm" />
         </div>
@@ -92,7 +92,7 @@ function TimelineTaskBar({
 
       {/* Tooltip */}
       {isHovered && (
-        <div className="absolute bottom-full left-0 mb-2 p-2 bg-gray-900 text-white text-xs rounded shadow-lg z-10 whitespace-nowrap">
+<div className="absolute bottom-full left-0 mb-2 p-2 bg-gray-900 text-white text-xs rounded shadow-lg z-10 whitespace-nowrap">
           <div className="font-medium">{task.title}</div>
           <div className="text-gray-300">
             {task.startDate && format(new Date(task.startDate), "MMM d")} - {" "}

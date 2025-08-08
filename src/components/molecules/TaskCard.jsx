@@ -37,7 +37,7 @@ const TaskCard = ({
       <div className="space-y-3">
         {/* Header */}
         <div className="flex items-start justify-between gap-2">
-          <div className="flex items-center gap-2">
+<div className="flex items-center gap-2">
             <PriorityIndicator priority={task.priority} />
             <h3 className="font-medium text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2">
               {task.title}
@@ -57,7 +57,7 @@ const TaskCard = ({
         </div>
 
         {/* Description */}
-        {task.description && (
+{task.description && (
           <p className="text-sm text-gray-600 line-clamp-2">
             {task.description}
           </p>
@@ -65,7 +65,7 @@ const TaskCard = ({
 
         {/* Footer */}
         <div className="flex items-center justify-between">
-          <Badge variant={task.status} size="sm">
+<Badge variant={task.status} size="sm">
             {task.status === "todo" ? "To Do" : 
              task.status === "progress" ? "In Progress" : 
              "Done"}

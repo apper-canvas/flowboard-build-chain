@@ -131,7 +131,7 @@ const Archive = () => {
       ) : (
         <div className="space-y-4">
           {archivedTasks.map((task) => (
-            <div
+<div
               key={task.Id}
               className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-all duration-200"
             >

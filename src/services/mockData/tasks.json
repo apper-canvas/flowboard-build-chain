@@ -1,0 +1,98 @@
+[
+  {
+    "Id": 1,
+    "projectId": "1",
+    "title": "Design user interface wireframes",
+    "description": "Create detailed wireframes for the main dashboard, task boards, and user management interfaces",
+    "status": "done",
+    "priority": "high",
+    "dueDate": "2024-01-18T23:59:59.000Z",
+    "createdAt": "2024-01-15T09:00:00.000Z",
+    "updatedAt": "2024-01-18T16:45:00.000Z",
+    "archived": false
+  },
+  {
+    "Id": 2,
+    "projectId": "1",
+    "title": "Implement drag and drop functionality",
+    "description": "Add HTML5 drag and drop support for moving tasks between different status columns on the Kanban board",
+    "status": "progress",
+    "priority": "high",
+    "dueDate": "2024-01-25T23:59:59.000Z",
+    "createdAt": "2024-01-15T10:00:00.000Z",
+    "updatedAt": "2024-01-22T11:20:00.000Z",
+    "archived": false
+  },
+  {
+    "Id": 3,
+    "projectId": "1", 
+    "title": "Create project dashboard with analytics",
+    "description": "Build a comprehensive dashboard showing project progress, task completion rates, and team productivity metrics",
+    "status": "todo",
+    "priority": "medium",
+    "dueDate": "2024-01-30T23:59:59.000Z",
+    "createdAt": "2024-01-16T14:00:00.000Z",
+    "updatedAt": "2024-01-16T14:00:00.000Z",
+    "archived": false
+  },
+  {
+    "Id": 4,
+    "projectId": "1",
+    "title": "Set up task filtering and search",
+    "description": "Implement advanced filtering options by status, priority, assignee, and due date with real-time search functionality",
+    "status": "todo",
+    "priority": "medium",
+    "dueDate": "2024-02-05T23:59:59.000Z",
+    "createdAt": "2024-01-17T11:00:00.000Z",
+    "updatedAt": "2024-01-17T11:00:00.000Z",
+    "archived": false
+  },
+  {
+    "Id": 5,
+    "projectId": "1",
+    "title": "Add task due date notifications",
+    "description": "Create a notification system to alert users about upcoming task deadlines and overdue items",
+    "status": "progress",
+    "priority": "low",
+    "dueDate": "2024-02-08T23:59:59.000Z",
+    "createdAt": "2024-01-18T13:00:00.000Z",
+    "updatedAt": "2024-01-23T09:30:00.000Z",
+    "archived": false
+  },
+  {
+    "Id": 6,
+    "projectId": "1",
+    "title": "Implement task archiving system",
+    "description": "Build functionality to archive completed tasks while maintaining the ability to view and restore them when needed",
+    "status": "todo",
+    "priority": "low",
+    "dueDate": "2024-02-12T23:59:59.000Z",
+    "createdAt": "2024-01-19T15:00:00.000Z",
+    "updatedAt": "2024-01-19T15:00:00.000Z",
+    "archived": false
+  },
+  {
+    "Id": 7,
+    "projectId": "1",
+    "title": "Write comprehensive documentation",
+    "description": "Create user guides, API documentation, and developer setup instructions for the project",
+    "status": "done",
+    "priority": "medium",
+    "dueDate": "2024-01-12T23:59:59.000Z",
+    "createdAt": "2024-01-08T10:00:00.000Z",
+    "updatedAt": "2024-01-12T17:00:00.000Z",
+    "archived": true
+  },
+  {
+    "Id": 8,
+    "projectId": "1",
+    "title": "Optimize mobile responsiveness",
+    "description": "Ensure the application works seamlessly across all device sizes with touch-friendly interactions",
+    "status": "progress",
+    "priority": "high",
+    "dueDate": "2024-01-28T23:59:59.000Z",
+    "createdAt": "2024-01-20T08:00:00.000Z",
+    "updatedAt": "2024-01-24T12:15:00.000Z",
+    "archived": false
+  }
+]
